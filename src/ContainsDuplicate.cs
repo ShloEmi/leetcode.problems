@@ -27,11 +27,12 @@ Constraints:
 -109 <= nums[i] <= 109
  */
 
+
 public class ContainsDuplicateUnitTests
 {
     public static bool ContainsDuplicate(int[] nums)
     {
-        HashSet<int> set = new HashSet<int>();
+        HashSet<int> set = new();
         foreach (var num in nums)
         {
             if (set.Contains(num))
@@ -53,7 +54,6 @@ public class ContainsDuplicateUnitTests
         ContainsDuplicate(testInput)
             .Should().BeTrue();
     }
-
 
     [Theory]
     [InlineData(new int[] { 1, 2 })]

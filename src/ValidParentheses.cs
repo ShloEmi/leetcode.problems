@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace leetcode.problems.ContainsDuplicate;
+namespace leetcode.problems.ValidParentheses;
 /*
 20. Valid Parentheses
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
@@ -30,16 +30,37 @@ Constraints:
 
 1 <= s.length <= 104
 s consists of parentheses only '()[]{}'.
-
  */
+
 
 public class ValidParenthesesUnitTests
 {
-    public static bool IsValid(string s)
-    {
-        return false;
-    }
+    protected static readonly IReadOnlyDictionary<char, char> brackets = new Dictionary<char, char>(3) {
+            { '(', ')' },
+            { '[', ']' },
+            { '{', '}' }
+        };
 
+    public static bool IsValid(string input)
+    {
+        var stack = new Stack<char>();
+
+        foreach (char nextInput in input)
+        {
+            if (brackets.ContainsKey(nextInput))
+                stack.Push(nextInput);
+            else
+            {
+                if (!stack.TryPop(out char last))
+                    return false;
+
+                if (nextInput != brackets[last])
+                    return false;
+            }
+        }
+
+        return stack.Count == 0;
+    }
 
 
     [Theory]
@@ -51,9 +72,11 @@ public class ValidParenthesesUnitTests
             .Should().BeTrue();
     }
 
-
     [Theory]
     [InlineData(@"(]")]
+    [InlineData("(")]
+    [InlineData("}")]
+    [InlineData("]")]
     public void Test__IsValid__WithInvalidInput__ShouldBeFalse(string testInput)
     {
         IsValid(testInput)
