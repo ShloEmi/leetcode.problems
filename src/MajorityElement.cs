@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using System.Runtime.CompilerServices;
 
 namespace leetcode.problems.MajorityElement;
 /*
@@ -37,44 +36,31 @@ public class MajorityElementUnitTests
 {
     public int MajorityElement(int[] nums)
     {
-        if (nums == null) 
+        if (nums == null || nums.Length == 0) 
             return int.MinValue;
 
-        if (nums.Length == 1)
-            return nums[0];
 
+        int candidate = 0, 
+            count = 0, 
+            majorCount = nums.Length / 2;
 
-        int result;
-        Random rndProvider = new();
-        int l=0, r=nums.Length-1;
-
-        while (true)
+        for (int i = 0; i < nums.Length; i++)
         {
-            swap(ref nums[l], ref nums[rndProvider.Next(0, r - l + 1)]);
-            (l, r ) = /*use queck sort*/Partition(nums, l, r);
-            // find if left or right length is better, and return new boundaries accordingly.. 
+            if (candidate == nums[i])
+            {
+                if (++count > majorCount)
+                    return candidate;
+            }
+            else if (count == 0)
+            {
+                candidate = nums[i];
+                count++;
+            } 
+            else
+                count--;
         }
 
-
-        return result;
-    }
-
-    private (int l, int r) Partition(int[] nums, int l, int r)
-    {
-        while (nums[l] < nums[l]) {
-            l++;
-        }
-        while (nums[r] >= nums[l]) r--;
-
-        return (0,0);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void swap(ref int v1, ref int v2)
-    {
-        int t = v1;
-        v1=v2;
-        v2=t;
+        return candidate;
     }
 
 
