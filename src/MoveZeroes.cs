@@ -33,11 +33,42 @@ Follow up: Could you minimize the total number of operations done?
 
 public class MoveZeroes
 {
-    // t = ?m
-    // Runtime ?
-    public static int[] MoveZeroes1(int[] nums)
+    // t = 38m
+    // Runtime 162 ms Beats 70.39%  Memory 54 MB Beats 51.2%
+    public static void MoveZeroes1(int[] nums)
     {
-        return nums;
+        if (nums == null)
+            return;
+
+
+        if (nums.Length == 1)
+            return;
+
+        int i = 0, lastZero = nums.Length;
+        do // A BIT FASTER RESULTS THAN: for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] != 0)
+            {
+                if (lastZero >= i)
+                    continue;
+
+                nums[lastZero] = nums[i];   // swap
+                nums[i] = 0;
+
+                do
+                {
+                    ++lastZero;
+                } while (nums[lastZero] != 0);
+            }
+            else
+            {
+                if (lastZero == nums.Length)
+                    lastZero = i;
+            }
+
+        } while (++i < nums.Length);
+
+        return;
     }
 }
 
@@ -60,9 +91,12 @@ public class MoveZeroesUnitTests
     [InlineData(new int[] { 1 }, new int[] { 1 })]
     [InlineData(new int[] { 1, 0 }, new int[] { 1, 0 })]
     [InlineData(new int[] { 0, 1, 0 }, new int[] { 1, 0, 0 })]
-    public void TestUUT(int[] nums, int[] expected)
+    [InlineData(new int[] { 0, 0, 1, 0 }, new int[] { 1, 0, 0, 0 })]
+    [InlineData(new int[] { 1, 0, 0, 1 }, new int[] { 1, 1, 0, 0 })]
+    public void TestUUT1(int[] nums, int[] expected)
     {
-        MoveZeroes.MoveZeroes1(nums).Should().Equal(expected);
+        MoveZeroes.MoveZeroes1(nums);
+        nums.Should().Equal(expected);
     }
 }
 
@@ -79,6 +113,8 @@ public class MoveZeroesBenchmark
     [Benchmark]
     public int[] Benchmark1()
     {
-        return MoveZeroes.MoveZeroes1(Enumerable.Range(0, length).Select(i => random.Next()).ToArray());
+        int[] nums = Enumerable.Range(0, length).Select(i => random.Next()).ToArray();
+        MoveZeroes.MoveZeroes1(nums);
+        return nums;
     }
 }
