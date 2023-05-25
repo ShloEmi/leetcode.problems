@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using BenchmarkDotNet.Attributes;
+using FluentAssertions;
+using Xunit.Abstractions;
 
 namespace leetcode.problems.ReverseVowelsString;
 /*
@@ -26,6 +28,7 @@ s consist of printable ASCII characters.
 */
 
 
+[ShortRunJob, MemoryDiagnoser]
 public class ReverseVowelsStringUnitTests
 {
     // Runtime 116 ms Beats 15.70% Memory 38.3 MB Beats 100%
@@ -104,6 +107,17 @@ public class ReverseVowelsStringUnitTests
 
 
 
+    #region tests
+
+    public ReverseVowelsStringUnitTests()
+    { 
+    }
+
+    public ReverseVowelsStringUnitTests(ITestOutputHelper output)
+    {
+        this.output = output;
+    }
+
     [Theory]
     [InlineData("hello", "holle")]
     [InlineData("leetcode", "leotcede")]
@@ -116,4 +130,41 @@ public class ReverseVowelsStringUnitTests
         ReverseVowels1(s).Should().Be(expected);
         ReverseVowels2(s).Should().Be(expected);
     }
+
+
+
+
+    #endregion
+
+
+    #region Benchmark
+
+    private readonly ITestOutputHelper output;
+
+    [Params(0, 1, 2, 3, 5, 10, 100, 1_000, 10_000, 100_000, 1_000_000)]
+    public int length;
+
+    private static Random random = new();
+
+
+    [Benchmark]
+    public string BenchmarkReverseVowels1()
+    {
+        return ReverseVowels1(RandomString(length));
+    }
+
+    // [Benchmark]
+    public string BenchmarkReverseVowels2()
+    {
+        return ReverseVowels2(RandomString(length));
+    }
+
+    public static string RandomString(int length)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, length)
+            .Select(s => s[random.Next(s.Length)]).ToArray());
+    }
+
+    #endregion
 }
