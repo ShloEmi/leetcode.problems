@@ -4,7 +4,7 @@ using System.Text;
 namespace leetcode.problems.GreatestCommonDivisorOfStrings;
 /*
 https://leetcode.com/problems/merge-strings-alternately/?envType=study-plan-v2&id=leetcode-75
-(-10m)
+(> 1h)
 
 1071. Greatest Common Divisor of Strings
 Easy
