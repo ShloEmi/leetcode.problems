@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-
-namespace leetcode.problems.CanPlaceFlowers;
+﻿namespace leetcode.problems.CanPlaceFlowers;
 /*
 605. Can Place Flowers
 Easy

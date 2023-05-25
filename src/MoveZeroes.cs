@@ -1,8 +1,4 @@
-﻿using BenchmarkDotNet.Attributes;
-using FluentAssertions;
-using Xunit.Abstractions;
-
-namespace leetcode.problems.MoveZeroes;
+﻿namespace leetcode.problems.MoveZeroes;
 /*
 283. Move Zeroes
 Easy
@@ -45,7 +41,7 @@ public class MoveZeroes
             return;
 
         int i = 0, lastZero = nums.Length;
-        do // A BIT FASTER RESULTS THAN: for (int i = 0; i < nums.Length; i++)
+        do // SAME RESULTS AS: for (int i = 0; i < nums.Length; i++)
         {
             if (nums[i] != 0)
             {

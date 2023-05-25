@@ -1,5 +1,4 @@
-﻿using BenchmarkDotNet.Attributes;
-using FluentAssertions;
+﻿using leetcode.problems.Helpers;
 
 namespace leetcode.problems.ReverseVowelsString;
 /*
@@ -99,25 +98,17 @@ public class ReverseVowelsStringBenchmark
     [Params(0, 1, 2, 3, 5, 10, 100, 1_000, 10_000, 100_000, 1_000_000)]
     public int length;
 
-    private static Random random = new();
 
 
     [Benchmark]
     public string BenchmarkReverseVowels1()
     {
-        return ReverseVowelsString.ReverseVowels1(RandomString(length));
+        return ReverseVowelsString.ReverseVowels1(HelperExt.Random.String(length));
     }
 
     [Benchmark]
     public string BenchmarkReverseVowels2()
     {
-        return ReverseVowelsString.ReverseVowels1(RandomString(length), true);
-    }
-
-    public static string RandomString(int length)
-    {
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        return new string(Enumerable.Repeat(chars, length)
-            .Select(s => s[random.Next(s.Length)]).ToArray());
+        return ReverseVowelsString.ReverseVowels1(HelperExt.Random.String(length), true);
     }
 }

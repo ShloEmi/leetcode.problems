@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-
-namespace leetcode.problems.MajorityElement;
+﻿namespace leetcode.problems.MajorityElement;
 /*
 169. Majority Element
 Easy

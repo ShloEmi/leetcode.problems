@@ -1,5 +1,3 @@
-using FluentAssertions;
-
 namespace leetcode.problems.ContainsDuplicate;
 /*
 217. Contains Duplicate
