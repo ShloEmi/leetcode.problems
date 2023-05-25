@@ -112,7 +112,7 @@ public class GreatestCommonDivisorOfStringsUnitTests
     [InlineData("LEET", "CODE", "")]
 
     [InlineData("TAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXX")]
-    public static void Test__MergeAlternately__TBD(string str1, string str2, string expected)
+    public static void TestUUT(string str1, string str2, string expected)
     {
         GcdOfStrings(str1, str2).Should().Be(expected);
     }

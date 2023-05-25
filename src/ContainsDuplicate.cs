@@ -49,7 +49,7 @@ public class ContainsDuplicateUnitTests
     [InlineData(new int[] { 1, 1 })]
     [InlineData(new int[] { 1, 2, 3, 1 })]
     [InlineData(new int[] { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 })]
-    public void Test__ContainsDuplicate__WithDuplicate__ShouldBeTrue(int[] testInput)
+    public void TestUUT__WithDuplicate__ShouldBeTrue(int[] testInput)
     {
         ContainsDuplicate(testInput)
             .Should().BeTrue();
@@ -59,7 +59,7 @@ public class ContainsDuplicateUnitTests
     [InlineData(new int[] { 1, 2 })]
     [InlineData(new int[] { 1, 2, 3, 4 })]
     [InlineData(new int[] { 1, 3, 4, 11, 33, 44 })]
-    public void Test__ContainsDuplicate__WithoutDuplicate__ShouldBeFalse(int[] testInput)
+    public void TestUUT__WithoutDuplicate__ShouldBeFalse(int[] testInput)
     {
         ContainsDuplicate(testInput)
             .Should().BeFalse();

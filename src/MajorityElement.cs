@@ -75,7 +75,7 @@ public class MajorityElementUnitTests
 
     [InlineData(new [] { 3, 2, 3 }, 3)]
     [InlineData(new [] { 2, 2, 1, 1, 1, 2, 2 }, 2)]
-    public void Test__MajorityElement__TBD(int[] nums, int expected)
+    public void TestUUT(int[] nums, int expected)
     {
         MajorityElement(nums).Should().Be(expected);
     }

@@ -79,7 +79,7 @@ public class MergeStringsAlternatelyUnitTests
     [InlineData("abc", "pqr", "apbqcr")]
     [InlineData("ab", "pqrs", "apbqrs")]
     [InlineData("abcd", "pq", "apbqcd")]
-    public void Test__MergeAlternately__TBD(string word1, string word2, string expected)
+    public void TestUUT(string word1, string word2, string expected)
     {
         MergeAlternately(word1, word2).Should().Be(expected);
     }

@@ -227,7 +227,7 @@ public class CanPlaceFlowersUnitTests
     [InlineData(new int[] { 1, 1, 1, 0, 1 }, 1, false)]
     [InlineData(new int[] { 1, 1, 1, 1, 0 }, 1, false)]
     [InlineData(new int[] { 1, 1, 1, 1, 1 }, 1, false)]
-    public static void Test__MergeAlternately__TBD(int[] flowerbed, int n, bool expected)
+    public static void TestUUT(int[] flowerbed, int n, bool expected)
     {
         CanPlaceFlowers(flowerbed, n).Should().Be(expected);
     }

@@ -66,7 +66,7 @@ public class ValidParenthesesUnitTests
     [Theory]
     [InlineData("()")]
     [InlineData("()[]{}")]
-    public void Test__IsValid__WithValidInput__ShouldBeTrue(string testInput)
+    public void TestUUT__WithValidInput__ShouldBeTrue(string testInput)
     {
         IsValid(testInput)
             .Should().BeTrue();
@@ -77,7 +77,7 @@ public class ValidParenthesesUnitTests
     [InlineData("(")]
     [InlineData("}")]
     [InlineData("]")]
-    public void Test__IsValid__WithInvalidInput__ShouldBeFalse(string testInput)
+    public void TestUUT__WithInvalidInput__ShouldBeFalse(string testInput)
     {
         IsValid(testInput)
             .Should().BeFalse();
