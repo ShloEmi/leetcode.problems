@@ -2,7 +2,6 @@
 
 namespace leetcode.problems.KidsWithGreatestNumberOfCandies;
 /*
-https://leetcode.com/problems/merge-strings-alternately/?envType=study-plan-v2&id=leetcode-75
 1431. Kids With the Greatest Number of Candies
 Easy
 
@@ -37,11 +36,10 @@ Output: [true,false,true]
 */
 
 
-public class GreatestCommonDivisorOfStringsUnitTests
+public class KidsWithGreatestNumberOfCandiesUnitTests
 {
     /// <remarks>10m</remarks>
     // Runtime 155 ms Beats 45.34% Memory 44.7 MB Beats 31.16%
-
     public static IList<bool> KidsWithCandies(int[] candies, int extraCandies)
     {
         int max = candies.Max();
