@@ -26,17 +26,41 @@ Constraints:
 s and t consist only of lowercase English letters.
  
 
-Follow up: Suppose there are lots of incoming s, say s1, s2, ..., sk where k >= 109, and you want to check one by one to see if t has its subsequence. In this scenario, how would you change your code?
+Follow up: Suppose there are lots of incoming s, say s1, s2, ..., sk where k >= 109, and you want to check one by one to see if t has its subsequence. 
+In this scenario, how would you change your code?
 */
 
 
 public class IsSubsequence
 {
-    // t = ?m
-    // Runtime 
+    // t = 21m
+    // Runtime 72 ms Beats 79.85% Memory 37.8 MB Beats 47.24%
     public static bool IsSubsequence1(string s, string t)
     {
-        return false;
+        if (s == null)
+            return true;
+        if (t == null)
+            return false;
+
+
+        if (s.Length > t.Length)
+            return false;
+        if (s.Length == 0)
+            return true;
+
+        int si=0, ti=0;
+        while (si < s.Length && ti < t.Length)
+        {
+            if (t[ti] != s[si])
+                ++ti;
+            else if(s[si] == t[ti])
+            { 
+                ++si;
+                ++ti;
+            }
+        } 
+
+        return si == s.Length;
     }
 }
 
@@ -50,7 +74,13 @@ public class IsSubsequenceUnitTests
 
     [Theory]
     [InlineData("abc", "ahbgdc", true)]
+    [InlineData("ab", "asgddfgb", true)]
+    [InlineData("ba", "asgddfgb", false)]
+    [InlineData("ab", "asgddfg", false)]
     [InlineData("axc", "ahbgdc", false)]
+    [InlineData("aaaaaa", "bbaaaa", false)]
+    [InlineData("aaaaaa", "bbbbbb", false)]
+    [InlineData("aaaaaa", "bbbbbba", false)]
     public void TestUUT1(string s, string t, bool expected)
     {
         IsSubsequence.IsSubsequence1(s, t).Should().Be(expected);
