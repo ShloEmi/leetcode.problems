@@ -31,10 +31,16 @@ n == nums.length
 
 public class MaximumAverageSubarrayI
 {
-    // t = 13m
-    // Runtime 288 ms Beats 67.91% Memory 59.5 MB Beats 86.51%
+    // t1 = 13m
+    // Runtime1 288 ms Beats 67.91% Memory 59.5 MB Beats 86.51%
     public static double FindMaxAverage1(int[] nums, int k)
     {
+        if (nums == null)
+            return double.NaN;
+        if (nums.Length < k)
+            return double.NaN;
+
+
         int max = int.MinValue;
         int sum = 0;
         for (int i = 0; i <= nums.Length - k; i++)
@@ -43,7 +49,38 @@ public class MaximumAverageSubarrayI
                 for (int j = 0; j < k; j++)
                     sum += nums[j];
             else
-                sum = sum - nums[i-1] + nums[i+k-1];
+                sum = sum - nums[i - 1] + nums[i + k - 1];
+
+            if (max < sum)
+                max = sum;
+        }
+
+        return max / (double)k;
+    }
+
+    // eyeballs runtime optimized
+    // t2 = t1+5m
+    // Runtime 281 ms Beats 84.19% Memory 60.1 MB Beats 13.49%
+    public static double FindMaxAverage2(int[] nums, int k)
+    {
+        if (nums == null)
+            return double.NaN;
+        if (nums.Length < k)
+            return double.NaN;
+
+
+        int length = nums.Length;
+        if (length == 1)
+            return nums[0];
+
+        int sum = 0;
+        for (int j = 0; j < k; j++)
+            sum += nums[j];
+        int max = sum;
+
+        for (int i = 1; i <= length - k; i++)
+        {
+            sum = sum - nums[i - 1] + nums[i + k - 1];
 
             if (max < sum)
                 max = sum;
@@ -73,6 +110,7 @@ public class MaximumAverageSubarrayIUnitTests
     public void TestUUT1(int[] nums, int k, double expected)
     {
         MaximumAverageSubarrayI.FindMaxAverage1(nums, k).Should().Be(expected);
+        MaximumAverageSubarrayI.FindMaxAverage2(nums, k).Should().Be(expected);
     }
 }
 
@@ -84,12 +122,21 @@ public class MaximumAverageSubarrayIBenchmark
     public int length;
 
 
-    [Benchmark]
+    [Benchmark(Baseline = true)]
     public double Benchmark1()
     {
         int k = HelperExt.Random.Int(1, length);
-        int[] nums  = HelperExt.Random.Bytes(length).Select(c => (int)c).ToArray();
+        int[] nums = HelperExt.Random.Bytes(length).Select(c => (int)c).ToArray();
 
         return MaximumAverageSubarrayI.FindMaxAverage1(nums, k);
+    }
+
+    [Benchmark]
+    public double Benchmark2()
+    {
+        int k = HelperExt.Random.Int(1, length);
+        int[] nums = HelperExt.Random.Bytes(length).Select(c => (int)c).ToArray();
+
+        return MaximumAverageSubarrayI.FindMaxAverage2(nums, k);
     }
 }
