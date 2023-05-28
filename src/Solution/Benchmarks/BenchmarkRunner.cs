@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using leetcode.problems.FindDifferenceTwoArrays;
+using leetcode.problems.UniqueNumberOccurrences;
 
-BenchmarkRunner.Run<FindDifferenceTwoArrays1Benchmark>(); 
+BenchmarkRunner.Run<UniqueNumberOccurrences1Benchmark>(); 
