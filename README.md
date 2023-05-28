@@ -4,4 +4,4 @@ Solving leetcode-75 problems in C#.
 
 Source: https://leetcode.com/studyplan/leetcode-75/
 
-Build status: [https://github.com/ShloEmi/leetcode.problems/actions](https://github.com/ShloEmi/leetcode.problems/actions/workflows/dotnet.yml/badge.svg)
+Build status: ![https://github.com/ShloEmi/leetcode.problems/actions](https://github.com/ShloEmi/leetcode.problems/actions/workflows/dotnet.yml/badge.svg)
