@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using leetcode.problems.FindPivotIndex;
+using leetcode.problems.FindDifferenceTwoArrays;
 
-BenchmarkRunner.Run<FindPivotIndexBenchmark>(); 
+BenchmarkRunner.Run<FindDifferenceTwoArrays1Benchmark>(); 
