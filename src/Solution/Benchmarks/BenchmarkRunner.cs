@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using leetcode.problems.FindHighestAltitude;
+using leetcode.problems.FindPivotIndex;
 
-BenchmarkRunner.Run<FindHighestAltitudeBenchmark>(); 
+BenchmarkRunner.Run<FindPivotIndexBenchmark>(); 
