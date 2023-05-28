@@ -1,4 +1,4 @@
-﻿namespace leetcode.problems.MoveZeroes;
+﻿namespace leetcode.problems.TwoPointers;
 /*
 283. Move Zeroes
 Easy
@@ -99,7 +99,7 @@ public class MoveZeroesUnitTests
 
 [ShortRunJob, MemoryDiagnoser]
 public class MoveZeroesBenchmark
-{ 
+{
     [Params(0, 1, 2, 3, 5, 10, 100, 1_000, 10_000, 100_000, 1_000_000)]
     public int length;
 

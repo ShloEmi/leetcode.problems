@@ -1,4 +1,4 @@
-﻿using leetcode.problems.Helpers;
+﻿using leetcode.problems.Solution.Helpers;
 
 namespace leetcode.problems.FindHighestAltitude;
 /*

@@ -1,6 +1,7 @@
 ﻿using System.Text;
 
-namespace leetcode.problems.MergeStringsAlternately;
+namespace leetcode.problems.ArrayString;
+
 /*
 https://leetcode.com/problems/merge-strings-alternately/?envType=study-plan-v2&id=leetcode-75
 (12m)
@@ -58,7 +59,7 @@ public class MergeStringsAlternatelyUnitTests
         if (word1 == null && word2 == null) return null;
 
         StringBuilder sb = new(word1.Length + word2.Length);
-        for (int i=0, j=0; i < word1.Length || j < word2.Length; i++, j++)
+        for (int i = 0, j = 0; i < word1.Length || j < word2.Length; i++, j++)
         {
             if (i < word1.Length)
                 sb.Append(word1[i]);

@@ -1,6 +1,7 @@
-﻿using leetcode.problems.Helpers;
+﻿using leetcode.problems.Solution.Helpers;
 
-namespace leetcode.problems.ReverseVowelsString;
+namespace leetcode.problems.ArrayString;
+
 /*
 345. Reverse Vowels of a String
 Easy
@@ -94,7 +95,7 @@ public class ReverseVowelsStringUnitTests
 
 [ShortRunJob, MemoryDiagnoser]
 public class ReverseVowelsStringBenchmark
-{ 
+{
     [Params(0, 1, 2, 3, 5, 10, 100, 1_000, 10_000, 100_000, 1_000_000)]
     public int length;
 

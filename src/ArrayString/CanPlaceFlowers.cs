@@ -1,4 +1,5 @@
-﻿namespace leetcode.problems.CanPlaceFlowers;
+﻿namespace leetcode.problems.ArrayString;
+
 /*
 605. Can Place Flowers
 Easy
@@ -76,7 +77,7 @@ public class CanPlaceFlowersUnitTests
                 result = true;
         }
 
-        
+
         flowerbed = null;
         GC.Collect();   // sorry..  :)
         return result;

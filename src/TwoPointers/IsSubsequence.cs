@@ -1,6 +1,6 @@
-﻿using leetcode.problems.Helpers;
+﻿using leetcode.problems.Solution.Helpers;
 
-namespace leetcode.problems.IsSubsequence;
+namespace leetcode.problems.TwoPointers;
 /*
 392. Is Subsequence
 Easy
@@ -48,17 +48,17 @@ public class IsSubsequence
         if (s.Length == 0)
             return true;
 
-        int si=0, ti=0;
+        int si = 0, ti = 0;
         while (si < s.Length && ti < t.Length)
         {
             if (t[ti] != s[si])
                 ++ti;
-            else if(s[si] == t[ti])
-            { 
+            else if (s[si] == t[ti])
+            {
                 ++si;
                 ++ti;
             }
-        } 
+        }
 
         return si == s.Length;
     }
@@ -68,7 +68,7 @@ public class IsSubsequence
 public class IsSubsequenceUnitTests
 {
     private readonly ITestOutputHelper output;
-    public IsSubsequenceUnitTests(ITestOutputHelper output) 
+    public IsSubsequenceUnitTests(ITestOutputHelper output)
         => this.output = output;
 
 

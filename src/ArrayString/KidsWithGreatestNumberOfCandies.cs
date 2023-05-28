@@ -1,4 +1,5 @@
-﻿namespace leetcode.problems.KidsWithGreatestNumberOfCandies;
+﻿namespace leetcode.problems.ArrayString;
+
 /*
 1431. Kids With the Greatest Number of Candies
 Easy
@@ -59,7 +60,7 @@ public class KidsWithGreatestNumberOfCandiesUnitTests
         // + O(N)
         bool[] result = new bool[candies.Length];
         for (int i = 0; i < candies.Length; i++)
-            result[i] = candies[i] + extraCandies  >=  max;
+            result[i] = candies[i] + extraCandies >= max;
 
         // total O(2*N) -> O(N)
         return result;

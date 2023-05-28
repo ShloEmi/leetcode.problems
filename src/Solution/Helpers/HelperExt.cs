@@ -1,4 +1,4 @@
-﻿namespace leetcode.problems.Helpers;
+﻿namespace leetcode.problems.Solution.Helpers;
 
 internal static class HelperExt
 {

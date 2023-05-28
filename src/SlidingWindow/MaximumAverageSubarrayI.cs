@@ -1,6 +1,6 @@
-﻿using leetcode.problems.Helpers;
+﻿using leetcode.problems.Solution.Helpers;
 
-namespace leetcode.problems.MaximumAverageSubarrayI;
+namespace leetcode.problems.SlidingWindow;
 /*
 643. Maximum Average Subarray I
 Easy
@@ -94,7 +94,7 @@ public class MaximumAverageSubarrayI
 public class MaximumAverageSubarrayIUnitTests
 {
     private readonly ITestOutputHelper output;
-    public MaximumAverageSubarrayIUnitTests(ITestOutputHelper output) 
+    public MaximumAverageSubarrayIUnitTests(ITestOutputHelper output)
         => this.output = output;
 
 
@@ -106,7 +106,7 @@ public class MaximumAverageSubarrayIUnitTests
     [InlineData(new int[] { 0, 1 }, 2, 0.5)]
     [InlineData(new int[] { 0, 1, 10 }, 1, 10)]
     [InlineData(new int[] { 0, 1, 10 }, 2, 5.5)]
-    [InlineData(new int[] { 0, 1, 10 }, 3, 11/3.0)]
+    [InlineData(new int[] { 0, 1, 10 }, 3, 11 / 3.0)]
     public void TestUUT1(int[] nums, int k, double expected)
     {
         MaximumAverageSubarrayI.FindMaxAverage1(nums, k).Should().Be(expected);

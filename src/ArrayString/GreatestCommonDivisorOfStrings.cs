@@ -1,6 +1,7 @@
 ﻿using System.Text;
 
-namespace leetcode.problems.GreatestCommonDivisorOfStrings;
+namespace leetcode.problems.ArrayString;
+
 /*
 https://leetcode.com/problems/merge-strings-alternately/?envType=study-plan-v2&id=leetcode-75
 (> 1h)
@@ -72,10 +73,10 @@ public class GreatestCommonDivisorOfStringsUnitTests
                 return false;
 
             for (int i = 0; i < sb2.Length; i++)
-                if (sb2[i] != sb1[i]) 
+                if (sb2[i] != sb1[i])
                     return false;
 
-            return true;;
+            return true; ;
         }
 
 
