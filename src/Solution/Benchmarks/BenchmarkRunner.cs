@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using leetcode.problems.UniqueNumberOccurrences;
+using leetcode.problems.NumberRecentCalls;
 
-BenchmarkRunner.Run<UniqueNumberOccurrences1Benchmark>(); 
+BenchmarkRunner.Run<NumberRecentCalls1Benchmark>(); 
