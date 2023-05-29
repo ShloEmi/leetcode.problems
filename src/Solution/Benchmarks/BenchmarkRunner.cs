@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using leetcode.problems.NumberRecentCalls;
+using leetcode.problems.ReverseLinkedList;
 
-BenchmarkRunner.Run<NumberRecentCalls1Benchmark>(); 
+BenchmarkRunner.Run<ReverseLinkedList1Benchmark>(); 
