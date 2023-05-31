@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using leetcode.problems.MaximumDepthBinaryTree;
+using leetcode.problems.LeafSimilarTrees;
 
-BenchmarkRunner.Run<MaximumDepthBinaryTree1Benchmark>(); 
+BenchmarkRunner.Run<LeafSimilarTrees1Benchmark>(); 
