@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using leetcode.problems.ReverseLinkedList;
+using leetcode.problems.MaximumDepthBinaryTree;
 
-BenchmarkRunner.Run<ReverseLinkedList1Benchmark>(); 
+BenchmarkRunner.Run<MaximumDepthBinaryTree1Benchmark>(); 
