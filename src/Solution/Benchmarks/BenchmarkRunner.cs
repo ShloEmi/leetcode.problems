@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using leetcode.problems.LeafSimilarTrees;
+using leetcode.problems.SearchBinarySearchTree;
 
-BenchmarkRunner.Run<LeafSimilarTrees1Benchmark>(); 
+BenchmarkRunner.Run<SearchBinarySearchTree1Benchmark>(); 
