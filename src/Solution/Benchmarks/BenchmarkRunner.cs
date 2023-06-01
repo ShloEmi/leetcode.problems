@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using leetcode.problems.SearchBinarySearchTree;
+using leetcode.problems.GuessNumberHigherLower;
 
-BenchmarkRunner.Run<SearchBinarySearchTree1Benchmark>(); 
+BenchmarkRunner.Run<GuessNumberHigherLower1Benchmark>(); 
